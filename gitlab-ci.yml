@@ -1,0 +1,107 @@
+stages:
+    - test
+    - build
+    - deploy
+
+
+  validation:
+    tags:
+      - api
+    rules:
+      - if: $CI_MERGE_REQUEST_ID
+      - if: $CI_COMMIT_REF_NAME
+    stage: test
+    image: test # registry.gitlab.com/vertical-ec/for-infra/docker-gitlab-ci
+    before_script:
+      - npm install
+    script:
+      - npm run unit
+  
+  
+  .docker-build-ut:
+    tags:
+      - api
+      - ut
+    services:
+      - docker:18-dind
+    image: registry.gitlab.com/vertical-ec/for-infra/docker-gitlab-ci
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    before_script:
+      - npm install
+      - export DEPLOY_STAGE=at-ut
+  
+  
+  .docker-build-prod:
+    tags:
+      - api
+      - prod
+    services:
+      - docker:18-dind
+    image: test # registry.gitlab.com/vertical-ec/for-infra/docker-gitlab-ci
+    variables:
+      GIT_SUBMODULE_STRATEGY: recursive
+    before_script:
+      - npm install
+      - export DEPLOY_STAGE=at-prod
+  
+  
+  docker-build-ut:
+    extends: .docker-build-ut
+    stage: build
+    rules:
+      - if: '$CI_COMMIT_REF_NAME == "development"'
+        when: manual
+        allow_failure: true
+    environment:
+      name: ut
+    variables:
+      DEPLOY_STAGE: at-ut
+    script:
+      - sh ./devops/gitlab/build.sh
+  
+  
+  docker-deploy-ut:
+    extends: .docker-build-ut
+    stage: deploy
+    rules:
+      - if: '$CI_COMMIT_REF_NAME == "development"'
+        when: manual
+        allow_failure: true
+    environment:
+      name: ut
+    variables:
+      DEPLOY_STAGE: at-ut
+    script:
+      - sh ./devops/gitlab/deploy.sh
+  
+  
+  docker-build-prod:
+    extends: .docker-build-prod
+    stage: build
+    rules:
+      - if: '$CI_COMMIT_REF_NAME == "master"'
+        when: manual
+        allow_failure: true
+    environment:
+      name: prod
+    variables:
+      DEPLOY_STAGE: at-prod
+    script:
+      - sh ./devops/gitlab/build.sh
+  
+  
+  docker-deploy-prod:
+    extends: .docker-build-prod
+    stage: deploy
+    rules:
+      - if: '$CI_COMMIT_REF_NAME == "master"'
+        when: manual
+        allow_failure: true
+    environment:
+      name: prod
+    variables:
+      DEPLOY_STAGE: at-prod
+    script:
+      - sh ./devops/gitlab/deploy.sh
+  
