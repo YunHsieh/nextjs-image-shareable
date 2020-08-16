@@ -7,6 +7,7 @@ const middlewares = jsonServer.defaults()
 
 const port = 3000;
 const target = {};
+const router_paths = [];
 
 fs.readdirSync(__dirname).forEach(file => {
   if (file.indexOf('.') == -1) {
@@ -16,9 +17,12 @@ fs.readdirSync(__dirname).forEach(file => {
         [sub_file.replace('.json', '')]: fileModules,
       }
       Object.assign(target, source);
+      router_paths.push(`/${sub_file.replace('.json', '')}`);
     });
   }
 });
+
+Object.assign(target, {'' : router_paths});
 const router = jsonServer.router(target);
 
 server.use(middlewares);

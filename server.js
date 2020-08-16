@@ -6,7 +6,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 
-app.prepare().then(() => {
+app.prepare().then(async() => {
   const server = express();
 
   server.get('*', (req, res) => {

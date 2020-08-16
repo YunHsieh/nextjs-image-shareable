@@ -16,6 +16,7 @@
   "homepage": "https://gitlab.com/image-shareable/nextjs-image-shareable#readme",
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.2",
     "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "next": "9.3.5",
