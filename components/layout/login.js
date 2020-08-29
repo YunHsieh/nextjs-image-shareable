@@ -10,7 +10,6 @@ class UserLogin extends React.Component {
       };
     }
     hideComponent() {
-      console.log(this.props.showHideLogin);
       this.props.hideComponent();
     }
     render() {

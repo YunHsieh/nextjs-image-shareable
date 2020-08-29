@@ -4,12 +4,12 @@ import {
     createStore,
   } from 'redux';
 
-import { fetchTestApi } from './modules/get_api';
+import { myReducer } from './modules/get_api';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({
-  test: fetchTestApi,
+  mytest: myReducer,
 });
 
 export function initializeStore(initialState = {}) {
