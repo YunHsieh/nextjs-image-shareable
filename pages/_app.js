@@ -1,7 +1,7 @@
 import '../static/scss/style.scss'
 
 import Head from 'next/head';
-import App, { Container } from 'next/app'
+import App from 'next/app'
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import withReduxStore from '../store/with-redux-store'
@@ -9,10 +9,10 @@ import withReduxStore from '../store/with-redux-store'
 class MyApp extends App {
   render () {
     const { Component, pageProps, reduxStore } = this.props;
+    // TODO: theme provider will to be the render style.
     const test = {};
     return (
       <>
-      <Container>
         <Head>
           <title>GrandureSeason</title>
         </Head>
@@ -21,7 +21,6 @@ class MyApp extends App {
             <Component {...pageProps} />
           </Provider>
         </ThemeProvider>
-        </Container>
       </>
     )
   }

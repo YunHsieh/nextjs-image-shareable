@@ -1,22 +1,24 @@
-import Layout, { siteTitle } from '../components/layout/layout'
-import { getSortedPostsData } from '../lib/posts'
+import Layout from '../components/layout/layout'
+import Test from '../components/containers/test'
 
-const Home = ({ allPostsData }) => {
-  return (
-    <>
-      <Layout>
-      </Layout>
-    </>
-  )
-}
+import { fetchTestApi } from '../store/modules/get_api'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
+
+const Home = () => (
+  <main>
+    <Layout></Layout>
+    <Test></Test>
+  </main>
+);
+
+Home.getInitialProps = async (context) => {
+  const { reduxStore, isServer } = context;
+  if (context) {
+    await Promise.all([
+      reduxStore.dispatch(fetchTestApi()),
+    ])
   }
+  return { isServer };
 }
 
 export default Home;
