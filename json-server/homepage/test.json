@@ -1,52 +1,78 @@
-{
-    "ablum_id" : 1,
-    "ablum_name" : "我是主題",
-    "labels" : "1,2,3",
-    "is_favorite" : false,
-    "create_time" : 1598894800000,
-    "update_time" : 1598894800000,
-    "data" : [
-        {
-            "image_id" : 1,
-            "image_url" : "https://image.grandeurseason.com/p700x1000/image-1596347327166-f60b67b7f064483497e51f352f4a90bc",
-            "image_name" : "我是圖片1",
-            "image_width" : 543,
-            "image_hight" : 1020,
-            "signture" : "www.resource.com",
-            "labels": "1,2,3",
-            "is_shared": true,
-            "is_r18": false,
-            "is_favorite" : false,
-            "create_time" : 1598894800000,
-            "update_time" : 1598894800000  
-        },
-        {
-            "image_id" : 2,
-            "image_url" : "https://image.grandeurseason.com/p700x1000/image-1596347327166-f60b67b7f064483497e51f352f4a90bc",
-            "image_name" : "name",
-            "image_width" : 543,
-            "image_hight" : 1020,
-            "signture" : "我是圖片2",
-            "labels": "1,2,3",
-            "is_shared": true,
-            "is_r18": false,
-            "is_favorite" : false,
-            "create_time" : 1598894800000,
-            "update_time" : 1598894800000  
-        },
-        {
-            "image_id" : 3,
-            "image_url" : "https://image.grandeurseason.com/p700x1000/image-1596347327166-f60b67b7f064483497e51f352f4a90bc",
-            "image_name" : "name",
-            "image_width" : 543,
-            "image_hight" : 1020,
-            "signture" : "我是圖片3",
-            "labels": "1,2,3",
-            "is_shared": true,
-            "is_r18": false,
-            "is_favorite" : false,
-            "create_time" : 1598894800000,
-            "update_time" : 1598894800000  
-        }
-    ]
-}
+[
+    {
+        "ablum_id" : 1,
+        "ablum_name" : "我是主題",
+        "labels" : "1,2,3",
+        "is_favorite" : false,
+        "create_time" : 1598894800000,
+        "update_time" : 1598894800000,
+        "data" : [
+            {
+                "image_id" : 1,
+                "image_url" : "https://image.grandeurseason.com/p2800x1900/image-1598976673492-6bba8e3495784ffca6fee5bf58257af7",
+                "image_name" : "我是圖片1",
+                "image_width" : 543,
+                "image_hight" : 1020,
+                "signture" : "www.resource.com",
+                "labels": "1,2,3",
+                "is_shared": true,
+                "is_r18": false,
+                "is_favorite" : false,
+                "create_time" : 1598894800000,
+                "update_time" : 1598894800000  
+            },
+            {
+                "image_id" : 2,
+                "image_url" : "https://image.grandeurseason.com/p2800x1900/image-1598976673492-6bba8e3495784ffca6fee5bf58257af7",
+                "image_name" : "name",
+                "image_width" : 543,
+                "image_hight" : 1020,
+                "signture" : "我是圖片2",
+                "labels": "1,2,3",
+                "is_shared": true,
+                "is_r18": false,
+                "is_favorite" : false,
+                "create_time" : 1598894800000,
+                "update_time" : 1598894800000  
+            }
+        ]
+    },
+    {
+        "ablum_id" : 2,
+        "ablum_name" : "我是主題",
+        "labels" : "1,2,3",
+        "is_favorite" : false,
+        "create_time" : 1598894800000,
+        "update_time" : 1598894800000,
+        "data" : [
+            {
+                "image_id" : 1,
+                "image_url" : "https://image.grandeurseason.com/p2800x1900/image-1598976673492-6bba8e3495784ffca6fee5bf58257af7",
+                "image_name" : "我是圖片1",
+                "image_width" : 543,
+                "image_hight" : 1020,
+                "signture" : "www.resource.com",
+                "labels": "1,2,3",
+                "is_shared": true,
+                "is_r18": false,
+                "is_favorite" : false,
+                "create_time" : 1598894800000,
+                "update_time" : 1598894800000  
+            },
+            {
+                "image_id" : 2,
+                "image_url" : "https://image.grandeurseason.com/p2800x1900/image-1598976673492-6bba8e3495784ffca6fee5bf58257af7",
+                "image_name" : "name",
+                "image_width" : 543,
+                "image_hight" : 1020,
+                "signture" : "我是圖片2",
+                "labels": "1,2,3",
+                "is_shared": true,
+                "is_r18": false,
+                "is_favorite" : false,
+                "create_time" : 1598894800000,
+                "update_time" : 1598894800000  
+            }
+        ]
+    }
+]
