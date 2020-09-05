@@ -38,7 +38,7 @@ const myReducer = (state = initialState, action) => {
     case "API_TEST":
       return {
         ...state,
-        ...payload,
+        payload:payload,
       };
     default: 
       return state;

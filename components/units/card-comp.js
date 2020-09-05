@@ -11,9 +11,6 @@ position : fixed;
 z-index: 1;
 `
 
-export const Test = styled.div`
-
-`
 
 export const LoginCard = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -35,6 +32,7 @@ ${LoginCard}:hover & {
 }
 `
 
+
 export const LoginContext = styled.div`
 text-align: left;
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -42,6 +40,7 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         width:100%;
     }
 `
+
 
 export const LoginTail = styled.div`
 display: flex;
