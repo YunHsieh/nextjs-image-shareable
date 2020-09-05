@@ -1,8 +1,7 @@
 import UserLogin from './login';
 import { NavbarBase } from '../units/navbar-comp';
 
-import ClientTransport from '../../helpers/apis';
-import { fetchTestApi } from '../../store/modules/get_api'
+import { IconImage } from '../units/login-comp';
 
 export const siteTitle = "WTF = Welcome To Facebook";
 
@@ -25,7 +24,7 @@ class Layout extends React.Component {
        <>
           {showHideLogin && <UserLogin hideComponent={this.switchLoginStatus} />}
           <NavbarBase>
-            <button onClick={() => this.switchLoginStatus(true)}> Login </button>
+             <IconImage onClick={() => this.switchLoginStatus(true)}/>
           </NavbarBase>
        </>
     )
