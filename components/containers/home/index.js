@@ -10,6 +10,11 @@ class Test extends React.PureComponent {
     constructor(props) {
         super(props);
     }
+
+    onMouseMove(e) {
+        console.log('aa');
+        this.moving && this.onMove(e);
+    }
     
     render(){
         const {
@@ -17,22 +22,24 @@ class Test extends React.PureComponent {
         } = this.props;
         const leftElement = [];
         const rightElement = [];
-        payload.map( (data, i) => 
+        let count = 0;
+        payload.map((data, i) => 
             data['data'].map( (subData, j) => {
+                    count++;
                     if (j === 0){
-                        leftElement.push(<ImgControl key={j} src={subData['image_url']}/>);
+                        leftElement.push(<ImgControl onMouseMove={e => this.onMouseMove(e)} key={count} src={subData['image_url']}/>);
                     }
-                    rightElement.push(<ImgControl key={j} src={subData['image_url']}/>);
+                    rightElement.push(<ImgControl onMouseMove={e => this.onMouseMove(e)} key={count} src={subData['image_url']}/>);
                 }
             )
         )
         return(
             <>
                 
-                <div>
+                <div>                 
                     <div className="container">
                         <HalfLeft>
-                            {leftElement}
+                            {leftElement}                           
                         </HalfLeft>
                         <HalfRight>
                             {rightElement}

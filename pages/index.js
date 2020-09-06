@@ -1,5 +1,5 @@
 import Layout from '../components/layout/layout'
-import Test from '../components/containers/test'
+import Test from '../components/containers/home'
 
 import { fetchTestApi } from '../store/modules/get_api'
 
