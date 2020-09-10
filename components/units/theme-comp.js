@@ -11,6 +11,7 @@ export const HalfLeft = styled(MainBoard)`
 position:fixed;
 width:${LeftEdge};
 height:100%;
+background-color:#F9F9F9;
 `
 
 export const HalfRight = styled(MainBoard)`
@@ -19,9 +20,9 @@ margin-left:${LeftEdge};
 `
 
 export const ImgControl = styled.img`
-margin-top:50px;
+margin-top:30px;
 margin-right:15%;
-margin-bottom:50px;
+margin-bottom:30px;
 margin-left:15%;
 width:70%;
 border-radius: 10px;
