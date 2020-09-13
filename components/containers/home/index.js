@@ -29,33 +29,39 @@ class Test extends React.PureComponent {
         const executeScroll = (index) => {
             window.scrollTo({ behavior: 'smooth', top: this.myRef.current[index].offsetTop })
         };
-        
         // sort the data display image in album and image detail
-        payload.map((data, i) => 
-            data['data'].map( (subData, j) => {
-                    if (j === 0){
-                        this.leftElement.push(subData['image_url']);
-                    }
-                    this.rightElement.push(subData['image_url']);
+        payload.forEach((data, i) => {
+            data['data'].forEach( (subData, j) => {
+                const idx = (i * data['data'].length) + j;
+                if (j === 0){
+                    this.leftElement.push(
+                        <ImgControl onClick={executeScroll.bind(this, idx)} 
+                            onMouseMove={e => this.onMouseMove(e)} 
+                            key={idx} 
+                            src={subData['image_url']}/>
+                        );
                 }
-            )
-        )
+                
+                this.rightElement.push(<ImgControl 
+                    ref={el => {
+                        this.myRef.current[idx] = el;
+                    }} 
+                    onMouseMove={e => this.onMouseMove(e)} 
+                    key={`img-${idx}`} 
+                    src={subData['image_url']}/>
+                );
+            })
+        })
 
         return(
-            <>
-                <div>                 
-                    <div className="container">
-                        <HalfLeft>
-                            {this.leftElement.map( (data, i) => 
-                                <ImgControl onClick={executeScroll.bind(this, i*2)} onMouseMove={e => this.onMouseMove(e)} key={i} src={data}/>)
-                            }
-                        </HalfLeft>
-                        <HalfRight>
-                            {this.rightElement.map( (data, i) => 
-                                <ImgControl ref={el => this.myRef.current[i] = el} onMouseMove={e => this.onMouseMove(e)} key={i} src={data}/>)
-                            }
-                        </HalfRight>
-                    </div>
+            <>  
+                <div className="container">
+                    <HalfLeft>
+                        {this.leftElement}
+                    </HalfLeft>
+                    <HalfRight>
+                        {this.rightElement}
+                    </HalfRight>
                 </div>
             </>
         )

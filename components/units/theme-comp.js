@@ -12,6 +12,7 @@ position:fixed;
 width:${LeftEdge};
 height:100%;
 background-color:#F9F9F9;
+padding-bottom:80%;
 `
 
 export const HalfRight = styled(MainBoard)`
